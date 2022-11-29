@@ -30,29 +30,27 @@ $(function(){
             function startcpu(){
                 var i=0;
                 interval=setInterval(function(){
-                    if(i>0){
-                        $pc.empty();
-                        $zf.empty();
-                        $sf.empty();
-                        $of.empty();
-                        $rax.empty();
-                        $rcx.empty();
-                        $rdx.empty();
-                        $rbx.empty();
-                        $rsp.empty();
-                        $rbp.empty();
-                        $rsi.empty();
-                        $rdi.empty();
-                        $r8.empty();
-                        $r9.empty();
-                        $r10.empty();
-                        $r11.empty();
-                        $r12.empty();
-                        $r13.empty();
-                        $r14.empty();
-                        $stat.empty();
-                        $mem.empty();
-                    }
+                    $pc.empty();
+                    $zf.empty();
+                    $sf.empty();
+                    $of.empty();
+                    $rax.empty();
+                    $rcx.empty();
+                    $rdx.empty();
+                    $rbx.empty();
+                    $rsp.empty();
+                    $rbp.empty();
+                    $rsi.empty();
+                    $rdi.empty();
+                    $r8.empty();
+                    $r9.empty();
+                    $r10.empty();
+                    $r11.empty();
+                    $r12.empty();
+                    $r13.empty();
+                    $r14.empty();
+                    $stat.empty();
+                    $mem.empty();
                     $pc.append(datas[i].PC);
                     $zf.append(datas[i].CC.ZF);
                     $sf.append(datas[i].CC.SF);
@@ -82,7 +80,9 @@ $(function(){
                     if(i>=datas.length) clearInterval(interval);
                 },pause);
             }
-            startcpu();
+            $('#button').on('click',function(){
+                startcpu();
+            });
         }
     });
 });
