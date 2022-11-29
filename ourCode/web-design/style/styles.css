@@ -30,6 +30,7 @@ ul{
 }
 ul.reg{
     height: 55px;
+    text-transform: uppercase;
 }
 ul.mem li{
     height: 40px;
