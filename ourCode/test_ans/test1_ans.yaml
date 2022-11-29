@@ -1,0 +1,27 @@
+- CC:
+    OF: false
+    SF: false
+    ZF: true
+  Memory:
+    0: 3208240
+    8: 545259520
+    16: 12035303669760
+    32: 2302096
+  PC: 10
+  Register:
+    R10: 0
+    R11: 0
+    R12: 0
+    R13: 0
+    R14: 0
+    R8: 0
+    R9: 0
+    RAX: 0
+    RBP: 0
+    RBX: 0
+    RCX: 0
+    RDI: 0
+    RDX: 0
+    RSI: 0
+    RSP: 0
+  STAT: SADR

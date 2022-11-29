@@ -1,0 +1,21 @@
+#ifndef TOOLTIP_H
+#define TOOLTIP_H
+
+#include <queue>
+#include <QString>
+#include <mainwindow.h>
+#include "RegFile.h"
+
+queue<QString> F_tab;
+queue<QString> D_tab;
+queue<QString> E_tab;
+queue<QString> M_tab;
+queue<QString> W_tab;
+
+void FString(char icode,char ifun=FNONE);
+void DString(char icode,char ifun=FNONE);
+void EString(char icode,char ifun=FNONE);
+void MString(int valE,int val,);
+void WString();
+
+#endif // TOOLTIP_H

@@ -1,0 +1,210 @@
+- CC:
+    OF: false
+    SF: false
+    ZF: true
+  Memory:
+    0: 8450608
+    8: 16931356672
+    16: 20066087206912
+    24: 17523506150098599936
+    32: 10
+    40: 592
+    48: 811597824
+  PC: 10
+  Register:
+    R10: 0
+    R11: 0
+    R12: 0
+    R13: 0
+    R14: 0
+    R8: 0
+    R9: 0
+    RAX: 0
+    RBP: 0
+    RBX: 0
+    RCX: 0
+    RDI: 0
+    RDX: 128
+    RSI: 0
+    RSP: 0
+  STAT: SAOK
+- CC:
+    OF: false
+    SF: false
+    ZF: true
+  Memory:
+    0: 8450608
+    8: 16931356672
+    16: 20066087206912
+    24: 17523506150098599936
+    32: 10
+    40: 592
+    48: 811597824
+  PC: 20
+  Register:
+    R10: 0
+    R11: 0
+    R12: 0
+    R13: 0
+    R14: 0
+    R8: 0
+    R9: 0
+    RAX: 0
+    RBP: 0
+    RBX: 0
+    RCX: 3
+    RDI: 0
+    RDX: 128
+    RSI: 0
+    RSP: 0
+  STAT: SAOK
+- CC:
+    OF: false
+    SF: false
+    ZF: true
+  Memory:
+    0: 58782256
+    8: 16931356672
+    16: 20066087206912
+    24: 17523506150098599936
+    32: 10
+    40: 592
+    48: 811597824
+  PC: 30
+  Register:
+    R10: 0
+    R11: 0
+    R12: 0
+    R13: 0
+    R14: 0
+    R8: 0
+    R9: 0
+    RAX: 0
+    RBP: 0
+    RBX: 0
+    RCX: 3
+    RDI: 0
+    RDX: 128
+    RSI: 0
+    RSP: 0
+  STAT: SAOK
+- CC:
+    OF: false
+    SF: false
+    ZF: true
+  Memory:
+    0: 58782256
+    8: 16931356672
+    16: 20066087206912
+    24: 17523506150098599936
+    32: 10
+    40: 592
+    48: 811597824
+  PC: 40
+  Register:
+    R10: 0
+    R11: 0
+    R12: 0
+    R13: 0
+    R14: 0
+    R8: 0
+    R9: 0
+    RAX: 0
+    RBP: 0
+    RBX: 10
+    RCX: 3
+    RDI: 0
+    RDX: 128
+    RSI: 0
+    RSP: 0
+  STAT: SAOK
+- CC:
+    OF: false
+    SF: false
+    ZF: true
+  Memory:
+    0: 58782256
+    8: 16931356672
+    16: 20066087206912
+    24: 17523506150098599936
+    32: 10
+    40: 592
+    48: 811597824
+  PC: 50
+  Register:
+    R10: 0
+    R11: 0
+    R12: 0
+    R13: 0
+    R14: 0
+    R8: 0
+    R9: 0
+    RAX: 258352
+    RBP: 0
+    RBX: 10
+    RCX: 3
+    RDI: 0
+    RDX: 128
+    RSI: 0
+    RSP: 0
+  STAT: SAOK
+- CC:
+    OF: false
+    SF: false
+    ZF: false
+  Memory:
+    0: 58782256
+    8: 16931356672
+    16: 20066087206912
+    24: 17523506150098599936
+    32: 10
+    40: 592
+    48: 811597824
+  PC: 52
+  Register:
+    R10: 0
+    R11: 0
+    R12: 0
+    R13: 0
+    R14: 0
+    R8: 0
+    R9: 0
+    RAX: 258362
+    RBP: 0
+    RBX: 10
+    RCX: 3
+    RDI: 0
+    RDX: 128
+    RSI: 0
+    RSP: 0
+  STAT: SAOK
+- CC:
+    OF: false
+    SF: false
+    ZF: false
+  Memory:
+    0: 58782256
+    8: 16931356672
+    16: 20066087206912
+    24: 17523506150098599936
+    32: 10
+    40: 592
+    48: 811597824
+  PC: 53
+  Register:
+    R10: 0
+    R11: 0
+    R12: 0
+    R13: 0
+    R14: 0
+    R8: 0
+    R9: 0
+    RAX: 258362
+    RBP: 0
+    RBX: 10
+    RCX: 3
+    RDI: 0
+    RDX: 128
+    RSI: 0
+    RSP: 0
+  STAT: SHLT
