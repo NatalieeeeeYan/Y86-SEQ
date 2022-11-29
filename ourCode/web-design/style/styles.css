@@ -17,6 +17,12 @@ header{
     margin-bottom: 20px;
     font-weight: bold;
 }
+button{
+    background:rgba(228, 228, 250, 0.458) ;
+    color:rgb(255, 255, 255);
+    border-radius:5px;
+    border-color: cornflowerblue;
+}
 ul{
     list-style-type: none;
     height: 25px;
