@@ -2,6 +2,7 @@ body{
     margin: 0 0 0 30px;
     width: 1500px;
     background-image: url("img/background.png");
+    background-size: 2500px;
     color: white;
     background-repeat: no-repeat;
 }
@@ -60,4 +61,41 @@ div{
     color: rgb(255, 255, 255);
     margin: 10px 0 0 0;
     text-align: center;
+}
+br.br2{
+    display: none;
+}
+@media screen and (max-width: 1100px){
+    body{
+        width: 1100px;
+    }
+    ul.reg{
+        height: 80px;
+    }
+    div,header{
+        width: 1000px;
+    }
+    br.br1{
+        display: none;
+    }
+    br.br2{
+        display: block;
+    }
+}
+@media screen and (max-width: 750px){
+    body{
+        width: 750px;
+    }
+    ul.reg{
+        height: 110px;
+    }
+    div,header{
+        width: 650px;
+    }
+    br.br2{
+        display: none;
+    }
+    ul.mem{
+        padding: 0 0 0 15px;
+    }
 }
