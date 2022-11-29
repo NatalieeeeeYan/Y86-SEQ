@@ -16,6 +16,7 @@ header{
     border-radius: 15px;
     margin-top: 20px;
     margin-bottom: 20px;
+    margin-right: 20px;
     font-weight: bold;
 }
 button{
@@ -59,7 +60,7 @@ div{
     background-color: rgba(226, 217, 255, 0.466);
     border-radius: 15px;
     color: rgb(255, 255, 255);
-    margin: 10px 0 0 0;
+    margin: 10px 20px 0 0;
     text-align: center;
 }
 br.br2{
