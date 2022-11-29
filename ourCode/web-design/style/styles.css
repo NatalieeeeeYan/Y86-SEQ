@@ -1,7 +1,7 @@
 body{
     margin: 0 0 0 30px;
     width: 1500px;
-    background-image: url("img/background.png");
+    background-image: url("/img/background.png");
     color: white;
     background-repeat: no-repeat;
 }
