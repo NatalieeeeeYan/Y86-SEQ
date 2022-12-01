@@ -1,6 +1,12 @@
 from const import *
 from general_funcs import *
 
+
+#################################################################################
+# 六大阶段的第二阶段：译码
+# 根据 icode 设置srcA srcB dstE dstM
+# 根据 srcA 和 srcB 分别读取 valA 和 valB
+#################################################################################
 def decode(cpu):
     # set srcA
     if cpu.icode in [IRMMOVQ, IRRMOVQ, IOPQ, IPUSHQ]:
@@ -31,6 +37,8 @@ def decode(cpu):
     # set dstM
     if cpu.icode in [IMRMOVQ, IPOPQ]:
         cpu.dstM = cpu.rA
+    else:
+        cpu.dstM = RNONE
 
     # read valA & valB
     cpu.valA, cpu.valB = cpu.Reg.read(cpu.srcA, cpu.srcB)
