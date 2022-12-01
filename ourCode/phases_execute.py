@@ -4,8 +4,8 @@ from general_funcs import *
 # valE 保存计算结果
 # set CC
 
-def Unsigned2Binary(val):   #Unsigned2Binary
-    # 小端序 把unsigned转换成二进制
+# 把无符号数转换成二进制, 为小端序
+def Unsigned2Binary(val):
     bin = []
     tmp = val
     while tmp != 0:
@@ -15,8 +15,9 @@ def Unsigned2Binary(val):   #Unsigned2Binary
         bin += [0] * (32 - len(bin))
     return bin[0:32]
 
-def Bin2Signed(bin):  #Bin2Signed
-    # 小端序 把二进制转换成signed int
+
+# 把二进制转换成带符号数, 为小端序
+def Bin2Signed(bin):
     val = 0
     bas = 1
     for i in range(0, len(bin) - 1):
@@ -26,6 +27,7 @@ def Bin2Signed(bin):  #Bin2Signed
         val -= bas
     return val
 
+# 按位的二进制加法
 def aluAdd(cpu, a, b, c):
     a = Unsigned2Binary(strHex2int(a))
     b = Unsigned2Binary(strHex2int(b))
@@ -63,6 +65,7 @@ def aluAdd(cpu, a, b, c):
     return swichEndian(val)
 
 
+# 按位的二进制减法
 def aluSub(cpu, a, b, c):
     a = Unsigned2Binary(strHex2int(a))
     b = Unsigned2Binary(strHex2int(b))
@@ -102,6 +105,8 @@ def aluSub(cpu, a, b, c):
     val = ''.join(r) # 在r的每个字符中间插入空格
     return swichEndian(val)
 
+
+# 按位的二进制与运算
 def aluAnd(cpu, a, b, c):
     a = Unsigned2Binary(strHex2int(a))
     b = Unsigned2Binary(strHex2int(b))
@@ -129,6 +134,7 @@ def aluAnd(cpu, a, b, c):
     return swichEndian(val)
 
 
+# 按位的二进制异或运算
 def aluXor(cpu, a, b, c):
     a = Unsigned2Binary(strHex2int(a))
     b = Unsigned2Binary(strHex2int(b))
@@ -155,6 +161,11 @@ def aluXor(cpu, a, b, c):
     val = ''.join(r)
     return swichEndian(val)
 
+
+#################################################################################
+# 六大阶段第三阶段: 执行
+# 根据 icode 和 ifun 决定ALU执行的操作、设置 Condition Code、STAT等
+#################################################################################
 def execute(cpu):
     use_calc = cpu.icode in [IOPQ, IPOPQ, IPUSHQ, ICALL, IRMMOVQ, IMRMOVQ]
 
@@ -175,22 +186,6 @@ def execute(cpu):
         aluB = ZERO
     cpu.addOperation('Execute: Set aluB to {0}. '.format(swichEndian(aluB)))
 
-    # set dstE
-    # if cpu.icode in [IRRMOVQ]:
-    #     cpu.dstE = cpu.rB
-    # elif cpu.icode in [IIRMOVQ, IOPQ]:
-    #     cpu.dstE = cpu.rB
-    # elif cpu.icode in [IPUSHQ, IPOPQ, ICALL, IRET]:
-    #     cpu.dstE = RRSP
-    # else:
-    #     cpu.dstE = RNONE
-
-    # set dstM
-    # if cpu.icode in [IMRMOVQ, IPOPQ]:
-    #     cpu.dstM = cpu.rA
-    # else:
-    #     cpu.dstM = RNONE
-
     # set which operation ALU should do
     if cpu.icode in [IOPQ]:
         aluFun = int(cpu.ifun)
@@ -202,7 +197,6 @@ def execute(cpu):
     else:
         set_cc = False
 
-# normal
     if set_cc:
         cpu.addOperation('Execute: Set condition code. ')
         
