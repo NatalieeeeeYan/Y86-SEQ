@@ -1,6 +1,14 @@
 from const import *
 from general_funcs import *
 
+
+#################################################################################
+# 寄存器模拟: 采用列表形式存储, 存储顺序在const.py中
+# 三个接口: 读、写、返回所有寄存器信息
+# 读: 两个参数 srcA、srcB 表示要读的寄存器的地址（编号）
+# 写: 两个参数 dstW、valW 分别表示要写的寄存器地址（编号）和要写入的内容
+# 返回所有寄存器信息: 按要求用小端、十进制进行输出，输出形式为列表
+#################################################################################
 class Register:
     def __init__(self):
         self.register = ["00" * 4] * 15
@@ -37,5 +45,11 @@ if __name__ == "__main__":
     a, b = myRegister.read(0x0, 0x1)
     c, d = myRegister.read(0xa, 0xf)
     myRegister.return_info()
-    e = myRegister.read(RRSP, RNONE)
+    e, f = myRegister.read(RRSP, RNONE)
+    print(a)
+    print(b)
+    print(c)
+    print(d)
     print(e)
+    print(f)
+    print(myRegister.return_info())
