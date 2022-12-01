@@ -1,6 +1,18 @@
 from const import *
 from general_funcs import *
 
+
+#################################################################################
+# 六大阶段的第一阶段: 取指
+# 六大阶段皆按照CSAPP 'Y-86的顺序实现' 一节进行编写
+# icode ifun 两个字段以标识指令类型和操作类型（若有）
+# imem_error 标志变量表示是否有内存读取错误
+# instr_valid 标志变量表示指令是否合法
+# need_regids 标志变量表示该指令是否需要读/写内存
+# need_valC 标志变量表示该指令是否包含后续常数
+# 根据 need_regids need_valC计算valP（下一个PC值）
+#
+#################################################################################
 def fetch(cpu):
     cpu.operation = []
     imem_error = False
@@ -18,7 +30,6 @@ def fetch(cpu):
     instr_valid = cpu.icode not in [INOP, IHALT, IRRMOVQ, IIRMOVQ, IRMMOVQ, IMRMOVQ, IOPQ, IJXX, ICALL, IRET, IPOPQ, IPUSHQ]
     cpu.need_regids = cpu.icode in [IRMMOVQ, IOPQ, IPUSHQ, IPOPQ, IRMMOVQ, IIRMOVQ, IMRMOVQ]
     cpu.need_valC = cpu.icode in [IRMMOVQ, IIRMOVQ, IMRMOVQ, IJXX, ICALL]
-    # cpu.valP = hex2int(cpu.PC) + 1 + int(cpu.need_regids) + 8 * int(cpu.need_valC)
     valp = cpu.PC + 1 + int(cpu.need_regids) + 8 * int(cpu.need_valC)
     # print(valp)
     # valp = str(valp)
@@ -57,7 +68,7 @@ def fetch(cpu):
     else:
         cpu.changeSTAT(SAOK)
 
-    ins = VNONE
-    if cpu.STAT in [SAOK, SHLT]:
-        ins = "Fetch: " + str(cpu.PC) + ': ' + show_step(cpu.icode, cpu.ifun, cpu.rA, cpu.rB, cpu.valC)
-        cpu.addOperation(ins)
+    # ins = VNONE
+    # if cpu.STAT in [SAOK, SHLT]:
+    #     ins = "Fetch: " + str(cpu.PC) + ': ' + show_step(cpu.icode, cpu.ifun, cpu.rA, cpu.rB, cpu.valC)
+    #     cpu.addOperation(ins)
