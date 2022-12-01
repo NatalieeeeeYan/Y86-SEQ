@@ -2,6 +2,12 @@ from const import *
 from general_funcs import *
 
 
+
+#################################################################################
+# 六大阶段第四阶段: 访存
+# 根据 icode 判断要对内存进行的操作（读or写），确定操作的目标地址
+# 读取出的数据为 valM
+#################################################################################
 def memory(cpu):
     cpu.valM = VNONE
 
@@ -11,6 +17,13 @@ def memory(cpu):
         mem_addr = cpu.valE
     else:
         mem_addr = None
+
+    if cpu.icode in [IRMMOVQ, IPUSHQ]:
+        mem_data = cpu.valA
+    elif cpu.icode in [ICALL]:
+        mem_data = cpu.valP
+    else:
+        mem_data = VNONE
 
     if cpu.icode in [IMRMOVQ, IPOPQ, IRET]:
         read_flag = True
@@ -31,8 +44,8 @@ def memory(cpu):
 
     if write_flag:
         try:
-            cpu.Mem.write(strHex2int(mem_addr), cpu.valA)
-            cpu.addOperation('Memory writes {}. '.format(swichEndian(cpu.valA)))
+            cpu.Mem.write(strHex2int(mem_addr), mem_data)
+            cpu.addOperation('Memory writes {}. '.format(swichEndian(mem_data)))
         except:
             cpu.STAT = SADR
             cpu.addOperation('Memory error: write to {}. '.format(swichEndian(mem_addr)))
