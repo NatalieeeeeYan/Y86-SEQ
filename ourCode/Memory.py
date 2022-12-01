@@ -2,6 +2,20 @@ from general_funcs import *
 from const import *
 import re
 
+#################################################################################
+# 内存模拟
+# 使用字符串模拟内存，考虑到指令形式，以两个bits为一个单位进行初始化
+# 共有四个接口: 读、写、读取指令、按要求返回内存所有非零信息
+# 读: 两个参数（读取位置、要读取的内存长度）
+#     先判断读取位置是否合法（为负或超出memory最长空间），非法则抛出异常
+#     将读到的字段连成字符串，输出
+# 写: 两个参数同上
+#     先判断读取位置是否合法（为负或超出memory最长空间），非法则抛出异常
+#     将待写入的字段按2bits为单位分开，写入memory中
+# 读取指令: 根据指令字段中的':'和'｜'两个符号分割指令的每一部分
+#          ':'左侧为内存地址，右侧为指令; '|'左侧为指令，右侧为对指令的解释，不需要存储
+# 返回内存信息: 按要求以8bits为单位、小端、十进制输出
+#################################################################################
 class Memory:
     def __init__(self):
         self.memory = ["00"] * MEMSIZE
@@ -49,32 +63,16 @@ class Memory:
         for i in range(0, MEMSIZE, 8):
             val = ''.join(self.memory[i: i+8])
             if val != '00' * 8:
-                # print(val)
-                # data = int(val, 16)
                 data1 = swichEndian(val)
                 # print(data1)
                 data = hex2int(data1)
+                # print(data)
+
+                # data1 = hex2int(val)
+                # data = Bin2Signed(Unsigned2Binary(strHex2int(val)))
+                # print(data)
                 memInfo[i] = data
         return memInfo
-
-    # def get_instr_test(self, line):
-    #     position = None
-    #     instruction = None
-    #     try:
-    #         position_str = re.findall('0x[0-9a-fA-F]+', line)
-    #         # instruction_pos = line.find(':')
-    #         # print("Position str:", position_str)
-    #         instruction_str = line[line.find(':') + 1:len(line)]
-    #         # print("Instruction str:", instruction_str)
-    #         instruction = instruction_str.strip(' ')
-    #         # print("Instruction:", instruction)
-    #         if len(position_str) != 0:
-    #             position = int("".join(position_str), 16)
-    #             # print("Position(16):", position)
-    #             if len(instruction) != 0:
-    #                 self.write(position, instruction)
-    #     except Exception as expt:
-    #         raise Exception("Get instruction to memory error in %s" % line) from expt
 
 
 if __name__ == "__main__":
